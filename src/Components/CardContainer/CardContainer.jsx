@@ -1,10 +1,7 @@
-import React from 'react'
-
+import React from "react";
 
 //Aquí va el contenedor de cartas de los productos
 
 export default function CardContainer() {
-  return (
-    <div>CardContainer</div>
-  )
+  return <div>ACA ESTOY CardContainer</div>;
 }

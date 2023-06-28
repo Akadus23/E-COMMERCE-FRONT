@@ -4,15 +4,19 @@ import axios from "axios"
 export const GET_DETAIL = 'GET_DETAIL'
 
 export function getAllProducts(){
+    const linkFelipe = `http://190.100.208.178:3001/fakeprod`
+    const linkBackLocal= 'http://localhost:3001/productos/productos'
     return async (dispatch)=>{
         var data;
-        const response = await (fetch(`http://190.100.208.178:3001/fakeprod`));
+        var content;
+        const response = await (fetch(linkBackLocal));
         if(response.ok){
             data = await response.json()
+            content = data.content;
         } 
         return dispatch({
             type: 'GET_ALL_PRODUCTS',
-            payload: data
+            payload: content
         });
     }
 }

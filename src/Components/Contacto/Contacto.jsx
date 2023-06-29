@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { TextField, Button, Container, Typography, Grid, useMediaQuery } from '@mui/material';
 import { validacionesContacto } from './validaciones';
-import contact from '../../assets/Img/contact.jpg';
+import contact from '../../Assets/contact.jpg';
+import { styled } from '@mui/system';
 
 const Contacto = () => {
   const [name, setName] = useState('');
@@ -40,7 +41,20 @@ const Contacto = () => {
     }
   };
 
-  const isMobile = useMediaQuery('(max-width: 600px)');
+   const StyledContainer = styled(Container)(({ theme }) => ({
+      justifyContent: 'center',
+      display: 'flex',
+      alignItems: 'center',
+      height: '60%',
+      width: '40%',
+      [theme.breakpoints.down('sm')]: {
+        width: '100%',
+      },
+      mt: 20,
+      borderRadius: '3%',
+      background: 'linear-gradient(to right, #c5e1a5, #f0f4c3)',
+    }));
+
 
   return (
     <Grid
@@ -49,12 +63,13 @@ const Contacto = () => {
         backgroundImage: `url(${contact})`,
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
-        backgroundPosition: 'center',
+        backgroundPosition: 'center center',
+        mt: -0.9,
         height: '110vh',
         width: '100%',
       }}
     >
-      <Container
+      {/* <Container
         sx={{
           justifyContent: 'center',
           display: 'flex',
@@ -65,7 +80,9 @@ const Contacto = () => {
           borderRadius: '3%',
           background: 'linear-gradient(to right, #c5e1a5, #f0f4c3)',
         }}
-      >
+      > */}
+        <StyledContainer>
+
         <form onSubmit={handleSubmit}>
           <Typography
             variant="h4"
@@ -139,7 +156,7 @@ const Contacto = () => {
             Enviar
           </Button>
         </form>
-      </Container>
+      </StyledContainer>
     </Grid>
   );
 };

@@ -104,10 +104,11 @@ const AboutUs = () => {
             />
             <CardContent
               sx={{
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "flex-start",
-                alignItems: "flex-start",
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'flex-start',
+                alignItems: 'flex-start',
+                
               }}
             >
               <Typography sx={{ width: 200, h: 200, fontSize: 14 }}>

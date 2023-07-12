@@ -1,0 +1,187 @@
+.navbar-container {
+  height: 150px;
+  margin-bottom: 20px;
+}
+.cajaLogo {
+  padding-top: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.logo {
+  height: 40px;
+}
+.busqueda {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 63%;
+}
+.carrito {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(241, 241, 241);
+  color: aliceblue;
+  width: 20%;
+}
+.carritoLogo {
+  height: 83px;
+  width: 88px;
+}
+.caja1 {
+  display: flex;
+  justify-content: center;
+  height: 98px;
+}
+.caja1A {
+  display: flex;
+  width: 62%;
+  height: 98px;
+}
+.caja2-container {
+  display: flex;
+  justify-content: center;
+  background-color: rgb(71, 71, 71);
+  display: flex;
+}
+.caja2B {
+  display: flex;
+  width: 62%;
+  height: 65px;
+}
+.home {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(255, 0, 0);
+  width: 9%;
+}
+.imagenHome {
+  width: 35px;
+  height: 33px;
+}
+.categorias {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 72%;
+  color: aliceblue;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+.actividades {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: rgb(0, 0, 0);
+  width: 20.5%;
+  color: aliceblue;
+}
+
+.navbar {
+  height: 150px;
+  margin-bottom: 20px;
+}
+.cajaLogo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.logo {
+  height: 40px;
+}
+.busqueda {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 63%;
+}
+.carrito {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(241, 241, 241);
+  color: aliceblue;
+  width: 20%;
+}
+.carritoLogo {
+  height: 83px;
+  width: 88px;
+}
+.caja1 {
+  display: flex;
+  justify-content: center;
+  height: 98px;
+}
+.caja1A {
+  display: flex;
+  width: 62%;
+  height: 98px;
+}
+.caja2 {
+  display: flex;
+  justify-content: center;
+  background-color: rgb(71, 71, 71);
+  display: flex;
+}
+.caja2B {
+  display: flex;
+  width: 62%;
+  height: 65px;
+}
+.home {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(255, 0, 0);
+  width: 9%;
+}
+.imagenHome {
+  width: 35px;
+  height: 33px;
+}
+.categorias {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 72%;
+  color: aliceblue;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+.actividades {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: rgb(0, 0, 0);
+  width: 20.5%;
+  color: aliceblue;
+}
+
+@media (max-width: 768px) {
+  .caja2 {
+    display: block;
+    width: 100%; /* Ocupar todo el ancho disponible */
+  }
+
+  .categorias {
+    width: 100%; /* Ocupar todo el ancho disponible */
+    margin: 0; /* Eliminar márgenes laterales */
+    height: auto;
+  }
+
+  .categorias-container {
+    display: flex;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch; /* Propiedad adicional para mejorar el scroll en dispositivos iOS */
+    height: auto;
+  }
+
+  .flecha-derecha {
+    display: none; /* Ocultar la flecha en el modo responsivo */
+    height: auto;
+  }
+}

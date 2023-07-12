@@ -1,0 +1,34 @@
+.fondo {
+  display: flex;
+  background-color: rgb(32, 32, 32);
+  height: 680px;
+  width: 225px;
+  border-right: 0.1em solid rgb(33, 33, 33);
+}
+.navBar {
+  width: 350px;
+}
+.caja1 {
+  width: 225px;
+  background-color: rgb(255, 255, 255);
+  height: 320px;
+}
+.caja1 h1 {
+  font-size: 20px;
+}
+.caja2 {
+  color: aliceblue;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  height: 320px;
+}
+.imagen {
+  width: 100%;
+}
+.content {
+  flex: 1;
+  padding: 20px;
+}

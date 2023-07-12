@@ -1,0 +1,63 @@
+.fondo {
+  width: 70%;
+  margin-left: 345px;
+  display: flex;
+  height: 680px;
+  justify-content: center;
+  align-items: start;
+}
+
+.cajaInterna2 {
+  display: flex;
+  justify-content: center;
+}
+.titulo {
+  background-image: url("https://wallpaperaccess.com/full/221443.jpg");
+  background-position: center;
+  background-size: cover;
+  height: 55px;
+  display: flex;
+  align-items: center;
+  width: 98.5%;
+  padding-left: 30px;
+  margin-bottom: 20px;
+  margin-top: 80px;
+  font-size: 25px;
+  color: aliceblue;
+}
+.caja2 {
+  border-left: 0.8em solid red;
+  background-color: rgb(238, 238, 238);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.caja3 {
+  display: flex;
+}
+.caja4 {
+  width: 490px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+.caja5 {
+  display: flex;
+  justify-content: end;
+  align-items: end;
+
+  width: 350px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 70px;
+  padding-right: 70px;
+}
+.caja5 button {
+  margin-left: 15px;
+  background-color: rgb(255, 0, 0);
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 40px;
+  padding-right: 40px;
+}

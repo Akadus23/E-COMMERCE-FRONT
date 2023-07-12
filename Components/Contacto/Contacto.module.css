@@ -1,0 +1,80 @@
+.caja1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  background-image: url("https://wallpaperaccess.com/full/221443.jpg");
+  background-position: center;
+  background-size: cover;
+  width: 45%;
+  height: 807px;
+}
+.caja2 {
+  margin-left: 862px;
+  position: absolute;
+  background-color: rgb(255, 255, 255);
+  width: 55%;
+  height: 807px;
+  padding: 110px;
+}
+.caja3 {
+  margin-bottom: 150px;
+  width: 60%;
+}
+.caja3 h1 {
+  font-size: 38px;
+  color: aliceblue;
+  font-weight: bold;
+  margin-bottom: 35px;
+}
+.caja3 p {
+  font-size: 28px;
+  color: rgb(185, 185, 185);
+}
+.cajaIcono {
+  margin-top: 35px;
+  display: flex;
+  justify-content: space-between;
+  width: 350px;
+}
+.icono1 {
+  background-color: red;
+  width: 55px;
+  height: 55px;
+  border-radius: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: aliceblue;
+}
+.icono2 {
+  background-color: red;
+  width: 55px;
+  height: 55px;
+  border-radius: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: aliceblue;
+}
+.icono3 {
+  background-color: red;
+  width: 55px;
+  height: 55px;
+  border-radius: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: aliceblue;
+}
+.icono4 {
+  background-color: red;
+  width: 55px;
+  height: 55px;
+  border-radius: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: aliceblue;
+  font-size: 25px;
+}

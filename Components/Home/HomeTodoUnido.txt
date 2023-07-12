@@ -1,0 +1,435 @@
+import React, { useState, useEffect } from 'react';
+import { Box, Button, Container, CardContent, CardHeader, Link, Typography, Avatar, Grid, Card, CardActions, IconButton, OutlinedInput, InputLabel, MenuItem, FormControl, FormControlLabel, Checkbox, Select, Chip, useTheme, Stack } from '@mui/material';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { Favorite, FavoriteBorder } from '@mui/icons-material';
+import {useSelector, useDispatch} from 'react-redux'
+import { getAllProducts } from '../../Redux/actions';
+import ContainerFiltros from './ContainerFiltros';
+
+const Home = () => {
+
+  const [categoriasSeleccionadas, setCategoriasSeleccionadas] = useState([]);
+  const [coloresSeleccionados, setColoresSeleccionados] = useState([]);
+
+  const [productosFiltrados, setProductosFiltrados] = useState([]); // Agrega esta línea para declarar el estado productos
+
+  const dispatch = useDispatch();
+  // Función que trae los productos del back al store de redux 
+  useEffect(()=>{
+    dispatch(getAllProducts())
+  },[])
+  
+  //Traemos todos los productos del store local 
+  const {allProducts} = useSelector((state)=>state)
+
+  const limpiarFiltros = () => {
+    setCategoriasSeleccionadas([]); 
+    setColoresSeleccionados([]); // Restablecer las selecciones de categorías y colores
+    // Otros pasos para limpiar los filtros si es necesario
+  };  
+  
+  const ITEM_HEIGHT = 48;
+  const ITEM_PADDING_TOP = 8;
+  const MenuProps = {
+    PaperProps: {
+      style: {
+        maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
+        width: 250,
+      },
+    },
+  };
+
+  const handleCategoriasChange = (event) => {
+    const {
+      target: { value },
+    } = event;
+    setCategoriasSeleccionadas(value);
+  };
+  
+  const handleColoresChange = (event) => {
+    const {
+      target: { value },
+    } = event;
+    setColoresSeleccionados(value);
+  };  
+
+  const [productosMostrados, setProductosMostrados] = useState(3);
+
+  const theme = createTheme({
+    breakpoints: {
+      values: {
+        xs: 0,
+        sm: 600,
+        md: 960,
+        lg: 1280,
+        xl: 1920,
+      },
+    },
+  });
+
+  const productos2 = allProducts;
+
+  const productos = [
+    {
+      id: 1,
+      name: "gafas",
+      image: 'https://www.xiaomiadictos.com/wp-content/uploads/2022/04/xiaomi-gafas-sol-aviador-pilot-768x405.jpg',
+      stock: "15",
+      description: "gafas de sol",
+      price: "50",
+      colores: ["Verde", "Negro", "Dorado"],
+      categoría: "visión",
+    },
+    {
+      id: 2,
+      name: "pantalon",
+      image: "https://estaticos-cdn.sport.es/clip/657b54ac-90fd-42fe-9b86-8529e59d7803_media-libre-aspect-ratio_default_0.jpg",
+      stock: "5",
+      description: "Pantalon de hombre",
+      price: "25",
+      colores: ["Verde", "Azul"] ,
+      categoría: "indumentaria",
+  },
+  {
+      id: 3,
+      name: "anotador",
+      image: 'https://images.pexels.com/photos/1162519/pexels-photo-1162519.jpeg?auto=compress&cs=tinysrgb&w=1600',
+      stock: "100",
+      description: "anotador con hojas rayadas",
+      price: "150",
+      colores: ['Unicolor'] ,
+      categoría: "librería",
+  },
+  {
+      id: 4,
+      name: "taza",
+      image: 'https://images.pexels.com/photos/1585850/pexels-photo-1585850.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+      stock: "15",
+      description: "taza para bebida",
+      price: "50",
+      colores: ["Verde", "Negro", "Dorado"] ,
+      categoría: "cocina",
+  },
+  {
+      id: 5,
+      name: "gorra",
+      image: "https://images.pexels.com/photos/1878821/pexels-photo-1878821.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      stock: "5",
+      description: "gorra para sol",
+      price: "25",
+      colores: ["Verde", "Azul"] ,
+      categoría: "accesorios",
+  },
+  {
+      id: 6,
+      name: "mochila",
+      image: 'https://images.pexels.com/photos/1102874/pexels-photo-1102874.jpeg?auto=compress&cs=tinysrgb&w=1600',
+      stock: "100",
+      description: "mochila deportiva",
+      price: "150",
+      colores: ['Unicolor'] ,
+      categoría: "equipaje",
+  },
+  {
+      id: 7,
+      name: "cuadro",
+      image: 'https://images.pexels.com/photos/6424244/pexels-photo-6424244.jpeg?auto=compress&cs=tinysrgb&w=1600',
+      stock: "15",
+      description: "cuadro de arte",
+      price: "50",
+      colores: ["Verde", "Negro", "Dorado"] ,
+      categoría: "hogar",
+  },
+  {
+      id: 8, 
+      name: "camara",
+      image: "https://images.pexels.com/photos/16389485/pexels-photo-16389485/free-photo-of-camara-tecnologia-dispositivo-telefono-movil.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      stock: "5",
+      description: "camara para celular",
+      price: "25",
+      colores: ["Verde", "Azul"] ,
+      categoría: "tecnología",
+  },
+  {
+      id: 9,
+      name: "pelota",
+      image: 'https://ep01.epimg.net/verne/imagenes/2015/09/11/articulo/1441988783_165642_1442161238_sumario_normal.jpg',
+      stock: "100",
+      description: "pelota para jugar futbol",
+      price: "150",
+      colores: ['Unicolor'] ,
+      categoría: "deportes",
+  },
+  {
+      id: 10,
+      name: "calzado",
+      image: 'https://images.pexels.com/photos/2529146/pexels-photo-2529146.jpeg?auto=compress&cs=tinysrgb&w=1600',
+      stock: "15",
+      description: "calzado deportivo",
+      price: "50",
+      colores: ["Verde", "Negro", "Dorado"] ,
+      categoría: "calzados",
+  },
+  {
+      id: 11, 
+      name: "bicicleta",
+      image: "https://images.pexels.com/photos/4542852/pexels-photo-4542852.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      stock: "5",
+      description: "bicicleta urbana ",
+      price: "25",
+      colores: ["Verde", "Azul"] ,
+      categoría: "vehículos",
+  },
+  {
+      id: 12,
+      name: "auriculares",
+      image: 'https://images.pexels.com/photos/1037992/pexels-photo-1037992.jpeg?auto=compress&cs=tinysrgb&w=1600',
+      stock: "100",
+      description: "auriculares extra bass",
+      price: "150",
+      colores: ['Unicolor'] ,
+      categoría: "tecnología",
+  },
+  ];
+
+  const aplicarFiltros = (categorias, colores) => {
+    // Filtrar los resultados en función de las categorías y colores seleccionados
+    const resultadosFiltrados = productos.filter((producto) => {
+      const categoriasSeleccionadas = Array.isArray(categorias) ? categorias : [categorias];
+      const coloresSeleccionados = Array.isArray(colores) ? colores : [colores];
+  
+      // Verificar si el producto pertenece a alguna de las categorías seleccionadas
+      const perteneceACategoria = categoriasSeleccionadas.includes(producto.categoría);
+  
+      // Verificar si el producto tiene alguno de los colores seleccionados
+      const tieneColor = coloresSeleccionados.some((color) => producto.colores.includes(color));
+      
+  
+      // Retornar true si el producto cumple con los filtros, de lo contrario false
+      return perteneceACategoria && tieneColor;
+    });
+  
+    // Actualizar el estado o realizar cualquier acción que necesites con los resultados filtrados
+    // Ejemplo:
+    setProductosMostrados(resultadosFiltrados.length);
+    setProductosFiltrados(resultadosFiltrados);
+  };
+
+
+  function getStyles(name, personName, theme) {
+    return {
+      fontWeight:
+        personName.indexOf(name) === -1
+          ? theme.typography.fontWeightRegular
+          : theme.typography.fontWeightMedium,
+    };
+  }
+  
+  // const primerosProductos = productos.slice(0, 3);
+
+  function getStyles(name, personName, theme) {
+    return {
+      fontWeight:
+        personName.indexOf(name) === -1
+          ? theme.typography.fontWeightRegular
+          : theme.typography.fontWeightMedium,
+    };
+  }
+
+  const mostrarMasProductos = () => {
+    setProductosMostrados((prevProductosMostrados) => prevProductosMostrados + 3);
+  };
+
+  const FavoritoButton = () => {
+    const [favorito, setFavorito] = useState(false);
+
+    const toggleFavorito = () => {
+      setFavorito(!favorito);
+    };
+
+    return (
+      <IconButton onClick={toggleFavorito}>
+        <ThemeProvider theme={favorito ? createTheme({ palette: { primary: { main: '#ff0000' } } }) : theme}>
+          {favorito ? <Favorite color="primary" /> : <FavoriteBorder />}
+        </ThemeProvider>
+      </IconButton>
+    );
+  };
+  
+    
+  return (
+    <Grid
+      container
+      spacing={8}
+      sx={{
+        justifyContent: 'center',
+        padding: '5%',
+        width: {
+          mobile: '99.5%',
+          tablet: '99.5%',
+          laptop: '99.5%',
+        },
+        alignSelf: 'center',
+        mb: 8,
+        mt: 1,
+      }}
+    >
+      <ContainerFiltros/>
+      <Container sx={{ display: 'space-between', justifyContent: 'center',}}>
+        <Box  xs={12} sm={6} md={6} lg={6} sx={{ display: 'space-between', justifyContent: 'center', alignItems: 'center', mt: 8, margin: 0 }}>
+        <FormControl sx={{ m: 1, width: 300 }}>
+          <InputLabel id="demo-multiple-producto-label">Categoría</InputLabel>
+          <Select
+            labelId="demo-multiple-producto-label"
+            id="demo-multiple-producto"
+            multiple
+            value={categoriasSeleccionadas}
+            onChange={handleCategoriasChange}
+            input={<OutlinedInput label="Categoría" />}
+            MenuProps={MenuProps}
+          >
+          {productos2?.map((producto) => (
+            <MenuItem
+              key={producto.id}
+              value={producto.categoria}
+              style={getStyles(producto.categoria, categoriasSeleccionadas, theme)}
+            >
+              {producto.categoria}
+            </MenuItem>
+          ))}
+        </Select>
+      </FormControl>
+      </Box>
+
+      <Box xs={12} sm={6} md={6} lg={6} sx={{ display: 'space-between', justifyContent: 'center', alignItems: 'center', mt: 8, margin: 0 }}>
+      <FormControl sx={{ m: 1, width: 300 }}>
+        <InputLabel id="demo-multiple-name-label">Colores</InputLabel>
+        <Select
+          labelId="demo-multiple-colores-label"
+          id="demo-multiple-colores"
+          multiple
+          value={coloresSeleccionados}
+          onChange={handleColoresChange}
+          input={<OutlinedInput label="Colores" />}
+          MenuProps={MenuProps}
+        >
+          {productos2.reduce((colores, producto) => {
+            producto.colorproducto?.split(",").forEach((color) => {
+              if (!colores.includes(color)) {
+                colores.push(color);
+              }
+            });
+            return colores;
+          }, []).map((color, index) => (
+            <MenuItem
+              key={index}
+              value={color}
+              style={getStyles(color, coloresSeleccionados, theme)}
+            >
+              {color}
+            </MenuItem>
+          ))}
+        </Select>
+      </FormControl>
+      </Box>
+      
+      <Box sx={{ textAlign: 'right', mt: 2 }}>
+        <Button variant="contained" onClick={aplicarFiltros} sx={{ ml: 2 }} >
+          Aplicar
+        </Button>
+        <Button variant="contained" onClick={limpiarFiltros} sx={{ marginLeft: 2 }}>
+          Limpiar
+        </Button>
+
+      </Box>
+
+      
+
+    </Container>  
+      
+      {productos2?.slice(0, productosMostrados).map((producto) => (
+        <Grid item mobile={12} tablet={6} laptop={6} desktop={6} key={producto.id}>
+
+        
+          <Card
+            sx={{
+              maxWidth: '100%',
+              minWidth: '200px',
+              padding: 2,
+              height: 'auto',
+              backgroundColor: '#dcedc8',
+              transition: 'transform 0.2s',
+              '&:hover': {
+                transform: 'scale(1.05)',
+              },
+            }}
+          >
+            <CardHeader
+              avatar={
+                <Avatar
+                  src={producto.fotoprinc}
+                  sx={{ width: 160, height: 160, bgcolor: theme.palette.primary.light.toString(), }}
+                  aria-label="product"
+                >
+                  {producto.nombreproducto
+                    .split(' ')
+                    .map((ele) => ele[0])
+                    .join('')}
+                </Avatar>
+              }
+              title={
+                <>
+                  <Typography sx={{ display: 'flex', width: '80px', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }} variant="h6">
+                    {producto.nombreproducto}
+                  </Typography>
+                  <Typography variant="h7"sx={{ color: 'blue' }}>{producto.categoria}</Typography>
+                </>
+              }
+              action={
+                <FavoritoButton />
+              }
+            />
+            <CardContent
+              sx={{
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'flex-start',
+                alignItems: 'flex-start',
+              }}
+            >
+              <Typography sx={{ width: 200, h: 200, fontSize: 14 }}>
+                {producto.descproducto}
+              </Typography>
+            </CardContent>
+            <CardActions
+              sx={{
+                mt: 2,
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'flex-start',
+              }}
+            >
+              <Typography sx={{ fontSize: 12, textAlign: 'start', fontFamily: 'Arial', color: 'black' }}>
+                Stock: {producto.disponibproducto}
+              </Typography>
+              <Typography sx={{ fontSize: 18, textAlign: 'start', fontFamily: 'Arial', color: 'black' }}>
+                Price: $ {producto.precioproducto}
+              </Typography>
+            </CardActions>
+
+          </Card>
+        </Grid>
+      ))}
+
+      <Grid item xs={12} sm={6} md={6} lg={6} sx={{ display: 'space-between', justifyContent: 'center', alignItems: 'center', mt: 8, margin: 0,}}>
+        <Button variant="contained" onClick={mostrarMasProductos}>
+          Mostrar más
+        </Button>
+      </Grid>
+  
+    </Grid>
+  );
+};
+    
+export default Home;
+    

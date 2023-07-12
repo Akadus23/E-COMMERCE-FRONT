@@ -1,0 +1,112 @@
+.fondo {
+  margin-left: auto;
+  width: 230%;
+  height: 580px;
+}
+.cajaUsuarios {
+  height: 440px;
+  overflow-y: auto; 
+}
+.fondo p {
+  font-size: 20px;
+}
+.cabezera {
+  display: flex;
+  align-items: center;
+}
+.cabezera button {
+  color: aliceblue;
+  background-color: rgb(255, 0, 0);
+  height: 40px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-left: 20px;
+}
+.imagen {
+  border-radius: 50px;
+  width: 50px;
+  height: 50px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-left: 5px;
+  margin-right: 5px;
+  border: 0.08em solid rgb(193, 193, 193);
+}
+.barra {
+  background-color: rgb(29, 29, 29);
+  color: aliceblue;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 20px;
+  padding-right: 20px;
+  height: 40px;
+}
+.barraimagen {
+  width: 28%;
+}
+.barrausername {
+  width: 27%;
+}
+.barrarol {
+  width: 20%;
+}
+.barraaccion {
+  width: 10%;
+}
+
+.usuarios {
+  margin-top: 10px;
+  border-radius: 10px;
+  border: 0.1em solid rgb(165, 165, 165);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.cajaImagen {
+  width: 28%;
+}
+.username {
+  display: flex;
+  align-items: center;
+
+  width: 27%;
+  height: 70px;
+}
+.rol {
+  display: flex;
+  align-items: center;
+  height: 70px;
+
+  width: 20%;
+}
+.ver {
+  display: flex;
+  align-items: center;
+  height: 70px;
+  width: 25%;
+}
+.accion {
+  display: flex;
+  align-items: center;
+  height: 70px;
+
+  width: 21%;
+}
+.accion button {
+  margin-right: 30px;
+  color: red;
+  font-weight: bold;
+  border: none;
+  font-size: 15px;
+}
+.pagination {
+  background-color: rgb(249, 129, 129);
+  display: flex;
+  height: 50px;
+  justify-content: center;
+}

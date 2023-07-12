@@ -1,0 +1,47 @@
+.fondo {
+  height: 680px;
+  width: 100%;
+}
+.avatar {
+  width: 100%;
+}
+.nombreUsuario {
+  background-color: rgb(210, 210, 210);
+  width: 11%;
+  height: 310px;
+  position: absolute;
+}
+
+.caja1 {
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+  width: 70%;
+}
+.cajaInterna1 {
+  width: 130%;
+}
+.tituloC {
+  background-image: url("https://wallpaperaccess.com/full/221443.jpg");
+  background-position: center;
+  background-size: cover;
+  height: 55px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding-left: 30px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  font-size: 25px;
+  color: aliceblue;
+}
+.datos {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  margin-left: 212px;
+
+  width: 88.5%;
+  height: 580px;
+}

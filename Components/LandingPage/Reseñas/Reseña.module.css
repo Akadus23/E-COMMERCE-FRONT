@@ -1,0 +1,111 @@
+.caja5 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("https://wallpaperaccess.com/full/221443.jpg");
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  height: 405px;
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+.cajaInterna {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 62%;
+  height: 100%;
+}
+.reseña {
+  width: 30%;
+  height: 100%;
+}
+.reseña h1 {
+  margin-top: 20px;
+  font-weight: bold;
+  font-size: 35px;
+  color: red;
+}
+.reseña p {
+  margin-top: 15px;
+  font-size: 30px;
+  color: aliceblue;
+}
+.carrusel {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 70%;
+  height: 100%;
+}
+
+.carrusel1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 250px;
+  height: 330px;
+  border-radius: 13px;
+  background-color: rgb(255, 255, 255);
+  border: 0.1em solid rgb(148, 148, 148);
+}
+.imagen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(145, 145, 145);
+  width: 100%;
+  height: 57%;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+.cajaImagen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(214, 214, 214);
+  width: 78%;
+  height: 78%;
+}
+.caja {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 11%;
+  margin: 10px;
+  padding-left: 10px;
+}
+.avatar {
+  background-image: url("https://static.vecteezy.com/system/resources/previews/009/292/244/original/default-avatar-icon-of-social-media-user-vector.jpg");
+  background-position: center;
+  background-size: cover;
+  width: 35px;
+  height: 100%;
+  border-radius: 50px;
+}
+.calificacion {
+  padding-left: 10px;
+  padding-bottom: 10px;
+}
+.opinion {
+  width: 100%;
+  height: 6em;
+  overflow: hidden;
+}
+.text {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  padding-left: 10px;
+  font-size: 15px;
+}
+.ellipsis {
+  margin-top: 70px;
+  margin-left: 210px;
+  background-color: rgb(255, 255, 255);
+  position: absolute;
+  width: 1em;
+  height: 1em;
+}

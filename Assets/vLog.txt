@@ -1,0 +1,254 @@
+// import React, { useEffect, useState, } from 'react';
+// import { Button, TextField, Grid, Container, Box, Typography, Paper, } from '@mui/material';
+// import { Link, useNavigate,} from 'react-router-dom';
+// import { GoogleLogin } from 'react-google-login';
+// import FacebookLogin from 'react-facebook-login';
+// import { gapi } from 'gapi-script';
+
+// const UsuarioLogin = () => {
+//   const navigate = useNavigate();
+//   const [usuarioLogin, setLoginUsuario] = useState('');
+//   //estados de email y contraseña
+//   const [username, setUsername] = useState('');
+//   const [usernameError, setUsernameError] = useState(false);
+//   const [usernameHelperText, setUsernameHelperText] = useState('');
+//   //estados de password
+//   const [password, setPassword] = useState('');
+//   const [passwordError, setPasswordError] = useState(false);
+//   const [passwordHelperText, setPasswordHelperText] = useState('');
+//   const clientID = '138695356208-rdmkno5fjn1seibluv3ca6drj2hkbeff.apps.googleusercontent.com';
+//   const facebookAppID = '660614649416865';
+
+//   // Validar el nombre de usuario
+//   const handleUsernameChange = (event) => {
+//     setUsername(event.target.value);
+  
+//     if (event.target.value === '') {
+//       setUsernameError(true);
+//       setUsernameHelperText('El nombre de usuario es requerido.');
+//     } else {
+//       setUsernameError(false);
+//       setUsernameHelperText('');
+//     }
+//   };
+  
+
+//   // funcion para validar contrasena
+//   const handlePasswordChange = (event) => {
+//     setPassword(event.target.value);
+//     if (event.target.value === '') {
+//       setPasswordError(true);
+//       setPasswordHelperText('ingrese su contrasena.');
+//     } else {
+//       setPasswordError(false);
+//       setPasswordHelperText('');
+//     }
+//   };
+     
+//   const handleLocalSubmit = (event) => {
+//     event.preventDefault(); // Evitar que el formulario se envíe automáticamente
+
+//     // Validar los campos de usuario y contraseña
+//     if (username === '') {
+//       setUsernameError(true);
+//       setUsernameHelperText('El nombre de usuario es requerido.');
+//       return;
+//     }
+
+//     if (password === '') {
+//       setPasswordError(true);
+//       setPasswordHelperText('Ingrese su contraseña.');
+//       return;
+//     }
+
+//     // Realizar lógica de envío o validación de usuario y contraseña
+//     if (username === 'usuario' && password === 'contraseña') {
+//       // Datos de inicio de sesión válidos
+//       // Lógica para iniciar sesión exitosamente
+
+//       // Ejemplo de redirección después de iniciar sesión exitosamente
+//       navigate('/dashboard');
+//     } else {
+//       // Datos de inicio de sesión inválidos
+//       alert('Nombre de usuario o contraseña incorrectos');
+//     }
+//   };
+
+//   useEffect(() => {
+//     const start = () => {
+//       // Inicialización de la biblioteca de la API de Google
+//       gapi.load('auth2', () => {
+//         gapi.auth2.init({
+//           client_id: '138695356208-rdmkno5fjn1seibluv3ca6drj2hkbeff.apps.googleusercontent.com'
+//         });
+//       });
+//     };
+//     gapi.load('client:auth2', start);
+//   }, []);
+
+  
+//   const onSuccess = (response) => {
+//     console.log(response);
+//     try {
+//       const { username, password } = response.profileObj;
+//         if (username === 'usuario' && password === 'contraseña') {
+//           // Datos de inicio de sesión válidos
+//           // Lógica para iniciar sesión exitosamente
+//           setUsername(response.profileObj);
+//           usuarioLogin({
+//             loggedFromGoogle: true,
+//             loggedFromFacebook: true,
+//             usuario: username,
+//             contraseña: password,
+//           });
+//         } else {
+//           // Datos de inicio de sesión inválidos
+//           alert('Nombre de usuario o contraseña incorrectos');
+//         }
+//       } catch (e) {
+//         alert(e.message);
+//       }
+//   };
+  
+//   const onFailure = () => {
+//     console.log('something went wrong');
+//   };
+
+//   const handleFacebookLogin = (response) => {
+//     return response.status === 'connected' ? onSuccess(response) : onFailure(response);
+//   };
+
+
+//   return (
+//     <>
+//       <Grid
+//         container
+//         sx={{
+//           backgroundImage: 'url("https://images.pexels.com/photos/6634186/pexels-photo-6634186.jpeg")',
+//           backgroundSize: 'cover',
+//           backgroundPosition: 'bottom',
+//           mt: -1,
+//         }}
+//       >
+//         <Box
+//           sx={{
+//             position: 'relative',
+//             top: -50,
+//             left: 0,
+//             width: '40%',
+//             height: '100%',
+//             display: 'flex',
+//             flexDirection: 'column',
+//             alignItems: 'center',
+//             p: 3,
+//             marginX: 'auto',
+//           }}
+//         >
+//           <Container
+//             component={Paper}
+//             elevation={5}
+//             sx={{
+//               maxWidth: '200px',
+//               padding: '15px',
+//               marginTop: '145px',
+//               marginBottom: '122px',
+//               minWidth: '200px',
+//               height: '600px',
+//             }}
+//           >
+//             <Box
+//               component="form"
+//               className="login"
+//               sx={{
+//                 display: 'flex',
+//                 justifyContent: 'space-between',
+//                 alignItems: 'center',
+//                 flexDirection: 'column',
+//                 height: '450px',
+//                 p: 2,
+//               }}
+//             >
+//               <Typography variant="h6" align="center" sx={{ marginTop: '30px', marginBottom: '20px' }}>
+//                 Ingresa a tu cuenta
+//               </Typography>
+//               <TextField
+//                 label="Usuario"
+//                 variant="outlined"
+//                 fullWidth
+//                 value={username}
+//                 onChange={handleUsernameChange}
+//               />
+//               <TextField
+//                 label="Contraseña"
+//                 variant="outlined"
+//                 fullWidth
+//                 type="password"
+//                 value={password}
+//                 onChange={handlePasswordChange}
+//                 sx={{ mt: 1 }}
+//               />
+//               <Button
+//                 variant="contained"
+//                 color="primary"
+//                 sx={{ margin: '10px', width: '100%' }}
+//                 onClick={handleLocalSubmit}
+//                 disabled={
+//                   username === '' && password === ''
+//                     ? true
+//                     : usernameError || passwordError
+//                     ? true
+//                     : false
+//                 }
+//               >
+//                 Ingresar
+//               </Button>
+
+//               <Box sx={{ mt: 5 }}>
+//                 <GoogleLogin
+//                   clientId={clientID}
+//                   buttonText="Iniciar sesión con Google"
+//                   onSuccess={onSuccess}
+//                   onFailure={onFailure}
+//                   cookiePolicy={'single_host_origin'}
+//                 />
+//               </Box>
+//               <Box sx={{ mt: 2 }}>
+//               <FacebookLogin
+//                 appId={facebookAppID}
+//                 fields="name,email,picture"
+//                 callback={handleFacebookLogin}
+//                 textButton="Iniciar sesión con Facebook"
+//                 size="small"
+//                 icon="fa-facebook"
+//               />
+//               </Box>
+//               <Typography sx={{ mt: 8 }}>
+//                 No tienes una cuenta?&nbsp;&nbsp;Haz click aquí:
+//               </Typography>
+//               <Button
+//                 variant="contained"
+//                 fullWidth
+//                 disableRipple
+//                 component={Link}
+//                 to="/formCrearUsuario"
+//                 sx={{
+//                   bgcolor: '#ff7043',
+//                   color: '#212121',
+//                   width: '80%',
+//                   '&:hover': {
+//                     backgroundColor: '#ff7043',
+//                   },
+//                 }}
+//               >
+//                 Registrarse
+//               </Button>
+//             </Box>
+//           </Container>
+//         </Box>
+//       </Grid>
+//     </>
+//   );
+// };
+
+
+// export default UsuarioLogin;

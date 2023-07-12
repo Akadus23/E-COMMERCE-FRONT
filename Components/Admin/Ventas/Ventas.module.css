@@ -1,0 +1,29 @@
+.imagen {
+  width: 50px;
+  height: 50px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-left: 5px;
+  margin-right: 5px;
+  border: 0.08em solid rgb(193, 193, 193);
+}
+.total {
+  margin-left: 40px;
+  border: 0.1em solid rgb(182, 182, 182);
+  width: 320px;
+  height: 200px;
+  padding: 20px;
+  border-radius: 11px;
+}
+.suma {
+  height: 20%;
+  font-size: 30px;
+}
+.pesos {
+  display: flex;
+  justify-content: end;
+  align-items: end;
+
+  font-size: 50px;
+  height: 80%;
+}

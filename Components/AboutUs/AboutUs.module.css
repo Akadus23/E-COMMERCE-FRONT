@@ -1,0 +1,232 @@
+.fondo {
+  display: flex;
+  justify-content: center;
+  height: 950px;
+  margin-bottom: 200px;
+}
+.cajaInterna {
+  height: 100%;
+  width: 62%;
+}
+.grupo {
+  height: 80%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 100%;
+}
+.titulo {
+  background-image: url("https://wallpaperaccess.com/full/221443.jpg");
+  background-position: center;
+  background-size: cover;
+  height: 55px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding-left: 30px;
+  margin-bottom: 20px;
+  margin-top: 100px;
+  font-size: 25px;
+  color: aliceblue;
+}
+.cajaNosotros {
+  margin-top: 100px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  border: 0.15em solid rgb(216, 216, 216);
+  height: 45%;
+  width: 23%;
+  border-radius: 13px;
+}
+.cajaNosotros1 {
+  margin-top: 100px;
+  margin-left: 25px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  border: 0.15em solid rgb(216, 216, 216);
+  height: 45%;
+  width: 22%;
+  border-radius: 13px;
+}
+.cajaNosotros1 h1 {
+  font-size: 20px;
+  margin-top: 50px;
+  font-weight: bold;
+}
+.cajaNosotros1 p {
+  font-size: 20px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+.cajaNosotros2 {
+  margin-top: 100px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  border: 0.15em solid rgb(216, 216, 216);
+  height: 45%;
+  width: 22%;
+  border-radius: 13px;
+}
+.cajaNosotros2 h1 {
+  font-size: 20px;
+  margin-top: 50px;
+  font-weight: bold;
+}
+.cajaNosotros2 p {
+  font-size: 20px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+.cajaNosotros3 {
+  margin-top: 100px;
+  margin-right: 25px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  border: 0.15em solid rgb(216, 216, 216);
+  height: 45%;
+  width: 22%;
+  border-radius: 13px;
+}
+.cajaNosotros3 h1 {
+  font-size: 20px;
+  margin-top: 50px;
+  font-weight: bold;
+}
+.cajaNosotros3 p {
+  font-size: 20px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+.filaDos1 {
+  width: 50%;
+}
+.filaDos2 {
+  width: 50%;
+}
+/* .filaDos3 {
+  width: 100%;
+} */
+.cajaNosotros h1 {
+  font-size: 20px;
+  margin-top: 50px;
+  font-weight: bold;
+}
+.cajaNosotros p {
+  font-size: 20px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+.imagen {
+  background-image: url("https://acortar.link/1z86HL");
+  background-position: center;
+  background-size: cover;
+  border-radius: 100px;
+  margin-bottom: 260px;
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  border: 0.15em solid rgb(216, 216, 216);
+}
+.imagen2 {
+  background-image: url("https://acortar.link/jm2eTJ");
+  background-position: center;
+  background-size: cover;
+  border-radius: 100px;
+  margin-bottom: 260px;
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  border: 0.15em solid rgb(216, 216, 216);
+}
+.imagen3 {
+  background-image: url("https://acortar.link/2VbPEZ");
+  background-position: center;
+  background-size: cover;
+  border-radius: 100px;
+  margin-bottom: 260px;
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  border: 0.15em solid rgb(216, 216, 216);
+}
+.imagen4 {
+  background-image: url("https://acortar.link/meBR3y");
+  background-position: center;
+  background-size: cover;
+  border-radius: 100px;
+  margin-bottom: 260px;
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  border: 0.15em solid rgb(216, 216, 216);
+}
+.imagen5 {
+  background-image: url("https://acortar.link/QUZlC0");
+  background-position: center;
+  background-size: cover;
+  border-radius: 100px;
+  margin-bottom: 260px;
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  border: 0.15em solid rgb(216, 216, 216);
+}
+.imagen6 {
+  background-image: url("https://acortar.link/cEBFVB");
+  background-position: center;
+  background-size: cover;
+  border-radius: 100px;
+  margin-bottom: 260px;
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  border: 0.15em solid rgb(216, 216, 216);
+}
+.imagen7 {
+  background-image: url("https://acortar.link/QKqxRl");
+  background-position: center;
+  background-size: cover;
+  border-radius: 100px;
+  margin-bottom: 260px;
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  border: 0.15em solid rgb(216, 216, 216);
+}
+.cajaIconos {
+  display: flex;
+  justify-content: space-between;
+  width: 115px;
+}
+.iconos1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+  background-color: red;
+  background-position: center;
+  background-size: cover;
+  width: 50px;
+  height: 50px;
+  border-radius: 13px;
+}
+.iconos2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+  background-color: red;
+  background-position: center;
+  background-size: cover;
+  width: 50px;
+  height: 50px;
+  border-radius: 13px;
+}

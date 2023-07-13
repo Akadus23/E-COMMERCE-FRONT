@@ -2,8 +2,9 @@ import {
   GET_DETAIL,
   SET_USUARIO_DETAIL,
   CLEAR_USUARIO_DETAIL,
+  // Agrega aquí el nombre de la nueva acción
+  CARGAR_PRODUCTO
 } from "./actions";
-
 //Valores iniciales del estado global
 const initialState = {
   nombreCategoria: "",
@@ -172,7 +173,11 @@ export default function rootReducer(state = initialState, { type, payload }) {
           allProducts: productosActualizados,
       };
       
-
+      case CARGAR_PRODUCTO:
+      return {
+        ...state,
+        details: payload,
+      };
 
     default:
       return state;

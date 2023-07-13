@@ -5,6 +5,7 @@ import axios from "axios";
 export const GET_DETAIL = "GET_DETAIL";
 export const SET_USUARIO_DETAIL = "SET_USUARIO_DETAIL";
 export const CLEAR_USUARIO_DETAIL = "CLEAR_USUARIO_DETAIL";
+export const CARGAR_PRODUCTO = "CARGAR_PRODUCTO";
 
 export function getAllProducts(pagina, producto, color, cate, precio) {
   if (!producto) producto = "";
@@ -205,18 +206,40 @@ export const setUsuarioDetail = (usuario) => {
   };
 };
 
-export function editarProducto(id) {
+export function editarProducto(id, productoEditado) {
   return async function (dispatch) {
     try {
       // Realiza la solicitud para editar el producto en el backend
       const response = await axios.put(
-        `https://commerce-back-2025.up.railway.app/producto/${id}`
+        `https://commerce-back-2025.up.railway.app/producto/${id}`,
+        productoEditado
       );
 
       // Si la solicitud es exitosa, despacha una acción para actualizar el estado en Redux
       if (response.status === 200) {
         dispatch({
           type: "EDITAR_PRODUCTO",
+          payload: response.data,
+        });
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
+}
+
+export function cargarProducto(id) {
+  return async function (dispatch) {
+    try {
+      // Realiza la solicitud para cargar el producto en el backend utilizando el ID
+      const response = await axios.get(
+        `https://commerce-back-2025.up.railway.app/producto/${id}`
+      );
+
+      // Si la solicitud es exitosa, despacha una acción para actualizar el estado en Redux
+      if (response.status === 200) {
+        dispatch({
+          type: "CARGAR_PRODUCTO",
           payload: response.data,
         });
       }

@@ -31,12 +31,12 @@ import ArrayObjetos from "./Helpers/arrayObjetos";
 import NotFound from "./Components/NotFound/NotFound"; // Importa el componente NotFound (puedes crearlo tú mismo)
 import Reviews from "./Components/Reviews/Reviews";
 import LandingPage from "./Components/LandingPage/LandingPage";
-import EditarProductoForm from "./Components/Admin/Publicaciones/EditarProductoForm";
+import FormEditarProducto from "./Components/Admin/Publicaciones/FormEditarProducto";
 
 function App() {
   const navigate = useNavigate();
-  axios.defaults.baseURL = "http://localhost:3001/"; // para trabajar en local
-  //axios.defaults.baseURL = 'https://commerce-back-2025.up.railway.app/' //Para trabajar con el deployado
+  //axios.defaults.baseURL = "http://localhost:3001/"; // para trabajar en local
+  axios.defaults.baseURL = 'https://commerce-back-2025.up.railway.app/' //Para trabajar con el deployado
 
   const { isAuthenticated, user } = useAuth0();
 
@@ -70,7 +70,6 @@ function App() {
         <Route path="/reviews" element={<Reviews />}></Route>
         <Route path="/admin" element={<Admin />}>
           <Route path="publicaciones" element={<Publicaciones />} />
-          
           <Route path="ventas" element={<Ventas />} />
           <Route path="usuarios" element={<UsuariosAct />} />
           <Route path="baneados" element={<Baneados />} />
@@ -80,9 +79,11 @@ function App() {
           />
           <Route path="mis-datos" element={<MisDatos />} />
           <Route path="perfilUsuario/:id" element={<PerfilUsuario />} />
+          
         </Route>
         <Route path="/busqueda/:producto" element={<HomeBusqueda />} />
-        <Route path="editar-producto/:id" element={<EditarProductoForm />} />
+        <Route path="editar-producto/:id" element={<FormEditarProducto />} />
+          
       </Routes>
       
       <Footer />

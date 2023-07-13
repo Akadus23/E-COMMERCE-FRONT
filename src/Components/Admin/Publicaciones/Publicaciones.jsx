@@ -23,9 +23,9 @@ export default function Publicaciones() {
   
   const productos2 = allProducts;
 
-  const [productosMostrados, setProductosMostrados] = useState(3);
+  const [productosMostrados, setProductosMostrados] = useState(productos2.length);
   const mostrarMasProductos = () => {
-    setProductosMostrados((prevProductosMostrados) => prevProductosMostrados + 3);
+    setProductosMostrados((prevProductosMostrados) => prevProductosMostrados + productos2.length);
   };
 
   const handleEditarProducto = (id) => {
@@ -47,22 +47,26 @@ export default function Publicaciones() {
         <Table>
           <TableHead>
             <TableRow>
+            <TableCell>  __________________________________ </TableCell>
               <TableCell>Nombre</TableCell>
+              <TableCell>  __________________________________ </TableCell>
               <TableCell>Stock</TableCell>
+              <TableCell>  __________________________________ </TableCell>
               <TableCell>Precio</TableCell>
-              <TableCell>Editar</TableCell>
+              <TableCell></TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
             {productos2?.slice(0, productosMostrados).map((producto) => (
               <TableRow key={producto.id}>
+                <TableCell>   </TableCell>
                 <TableCell>{producto.nombreproducto}</TableCell>
+                <TableCell>                 </TableCell>
                 <TableCell>{producto.disponibproducto}</TableCell>
+                <TableCell>      </TableCell>
                 <TableCell>{producto.precioproducto}</TableCell>
                 <TableCell>
-                  <IconButton component={Link} to={`/editar-producto/${producto.id}`} onClick={() => handleEditarProducto(producto.id)}>
-                    <EditIcon />
-                  </IconButton>
+           
                 </TableCell>
               </TableRow>
             ))}
@@ -70,9 +74,7 @@ export default function Publicaciones() {
         </Table>
       </TableContainer>
 
-      <Button variant="contained" onClick={mostrarMasProductos}>
-        Mostrar más
-      </Button>
+   
 
       <Pagination count={paginas} showFirstButton showLastButton onChange={handleChangePagina} />
     </Box>

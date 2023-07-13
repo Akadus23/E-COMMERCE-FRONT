@@ -8,7 +8,7 @@ const Ventas = () => {
   const dispatch = useDispatch();
   const productos = useSelector((state) => state.productosVentas);
   const totalVentas = useSelector((state) => state.SumatoriaVentas);
-  const [page, setPage] = React.useState(0);
+  const [page, setPage] = React.useState(1);
   const rowsPerPage = 4;
 
   const [totalPages, setTotalPages] = React.useState(0);

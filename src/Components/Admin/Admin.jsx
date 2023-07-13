@@ -7,18 +7,18 @@ import { useAuth0 } from "@auth0/auth0-react";
 
 export default function Admin() {
 
-  const { isAuthenticated, loginWithRedirect } = useAuth0();
+  const { isAuthenticated, loginWithRedirect, user } = useAuth0();
   if(true){
     return (
       <div className={s.fondo}>
       <div className={s.navBar}>
         <div className={s.caja1}>
           <img
-            src="https://ionicframework.com/docs/img/demos/avatar.svg"
-            alt=""
+            src= {user.picture}
+            alt="https://ionicframework.com/docs/img/demos/avatar.svg"
             className={s.imagen}
           />
-          <h1>Nombre Apellido</h1>
+          <h1>{user.name}</h1>
           <p>Rol: Administrador</p>
         </div>
         <div className={s.caja2}>
@@ -52,16 +52,7 @@ export default function Admin() {
           >
             USUARIOS HAB.
           </Link>
-          <Link
-            to="/admin/baneados"
-            style={{
-              color: "white",
-              textDecoration: "none",
-              marginBottom: "20px",
-            }}
-          >
-            USUARIOS DES.
-          </Link>
+       
           <Link
             to="/admin/mis-datos"
             style={{

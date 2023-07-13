@@ -78,104 +78,21 @@ export default function NavBar() {
             </Box>
           </Box>
 
-          <Grid item xs={6} md={4} sx={{ width: "80%", mr: 18, mt: 3 }}>
+          <Grid item xs={6} md={4} sx={{ width: "100%", mr: 18, mt: 3 }}>
             <Box display="flex" justifyContent="start" alignItems="center">
               <Box className="categorias">
-                {showCategories && (
-                  <Box
-                    sx={{ display: "flex", alignItems: "center", gap: "20px" }}
-                  >
-                    <Link
-                      to="/busqueda/tecnologia"
-                      style={{ textDecoration: "none", color: "white" }}
-                    >
-                      <Typography
-                        sx={{ cursor: "pointer" }}
-                        variant="body1"
-                        onClick={() => handleClick("tecnologia")}
+              <Typography
+                        sx={{ fontSize: 18}}
+                        variant="h6"
+
                       >
-                        Tecnología
+                        En All Market puedes encontrar todo lo que necesitas  
                       </Typography>
-                    </Link>
-                    <Link
-                      to="/busqueda/electrodomesticos"
-                      style={{ textDecoration: "none", color: "white" }}
-                    >
-                      <Typography
-                        sx={{ cursor: "pointer" }}
-                        variant="body1"
-                        onClick={() => handleClick("electrodomesticos")}
-                      >
-                        Electrodomésticos
-                      </Typography>
-                    </Link>
-                    <Link
-                      to="/busqueda/hogar"
-                      style={{ textDecoration: "none", color: "white" }}
-                    >
-                      <Typography
-                        sx={{ cursor: "pointer" }}
-                        variant="body1"
-                        onClick={() => handleClick("hogar")}
-                      >
-                        Hogar
-                      </Typography>
-                    </Link>
-                    <Link
-                      to="/busqueda/herramientas"
-                      style={{ textDecoration: "none", color: "white" }}
-                    >
-                      <Typography
-                        sx={{ cursor: "pointer" }}
-                        variant="body1"
-                        onClick={() => handleClick("herramientas")}
-                      >
-                        Herramientas
-                      </Typography>
-                    </Link>
-                    <Link
-                      to="/busqueda/moda"
-                      style={{ textDecoration: "none", color: "white" }}
-                    >
-                      <Typography
-                        sx={{ cursor: "pointer" }}
-                        variant="body1"
-                        onClick={() => handleClick("moda")}
-                      >
-                        Moda
-                      </Typography>
-                    </Link>
-                    <Link
-                      to="/busqueda/juguetes"
-                      style={{ textDecoration: "none", color: "white" }}
-                    >
-                      <Typography
-                        sx={{ cursor: "pointer" }}
-                        variant="body1"
-                        onClick={() => handleClick("juguetes")}
-                      >
-                        Juguetes
-                      </Typography>
-                    </Link>
-                    <Link
-                      to="/busqueda/construccion"
-                      style={{ textDecoration: "none", color: "white" }}
-                    >
-                      <Typography
-                        sx={{ cursor: "pointer" }}
-                        variant="body1"
-                        onClick={() => handleClick("construccion")}
-                      >
-                        Construcción
-                      </Typography>
-                    </Link>
-                  </Box>
-                )}
               </Box>
             </Box>
           </Grid>
 
-          <Grid item xs={6} md={2} sx={{ width: 150, mt: 2 }}>
+          <Grid item xs={6} md={2} sx={{ width: 100, mt: 2 }}>
             <Box display="flex" justifyContent="flex-end">
               <Stack direction="row" spacing={2}>
                 <Hidden mdUp>
@@ -207,6 +124,7 @@ export default function NavBar() {
                           </Typography>
                         </Button>
                       </Link>
+                      
                     )}
                     <Link
                       to="/formProducto"
@@ -230,6 +148,31 @@ export default function NavBar() {
                       >
                         <Typography sx={{ fontSize: "12px" }}>
                           Vender
+                        </Typography>
+                      </Button>
+                    </Link>
+                    <Link
+                      to="/admin"
+                      style={{
+                        textDecoration: "none",
+                        color: "white",
+                        marginLeft: "10px",
+                      }}
+                    >
+                      <Button
+                        variant="outlined"
+                        sx={{
+                          borderColor: "#ffa726",
+                          color: "black",
+                          borderWidth: 1,
+                          backgroundColor: "#ffa726",
+                          borderRadius: "10%",
+                          width: "95px",
+                          height: "40px",
+                        }}
+                      >
+                        <Typography sx={{ fontSize: "12px" }}>
+                          Admin
                         </Typography>
                       </Button>
                     </Link>

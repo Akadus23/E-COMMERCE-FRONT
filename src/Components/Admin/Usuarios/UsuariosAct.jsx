@@ -55,7 +55,7 @@ export default function UsuariosAct() {
             </Box>
             <Typography className={s.username}>{usuario.name}</Typography>
             <Typography className={s.rol}>
-              {usuario.rol === 1 ? "Usuario" : "Administrador"}
+              {usuario.rol === false ? "Usuario" : "Administrador"}
             </Typography>
             <Typography className={s.rol}>
               {usuario.isBan === false ? "Habilitado" : "Deshabilitado"}
@@ -69,7 +69,7 @@ export default function UsuariosAct() {
                 className={s.accion}
                 style={{ textDecoration: "none" }}
               >
-                <Button>ver</Button>
+           
               </Link>
               <script src="script.js"></script>
             </Box>

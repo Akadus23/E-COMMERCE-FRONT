@@ -13,18 +13,11 @@ export default function Productos() {
               className={s.fondoProductos}
             />
           </div>
-          <div className={s.titulo}>Producto Aleatorio</div>
+          <div className={s.titulo}>Zapatos</div>
           <div className={s.precio}>
             <h3>OFERTA!</h3>
           </div>
-          <button className={s.verMas}>
-            <a
-              href="/busqueda/juguetes"
-              style={{ color: "white", textDecoration: "none" }}
-            >
-              Ver más
-            </a>
-          </button>
+         
         </div>
         <div className={s.productos}>
           <div className={s.cajaImagen}>
@@ -34,18 +27,11 @@ export default function Productos() {
               className={s.fondoProductos}
             />
           </div>
-          <div className={s.titulo}>Producto Aleatorio</div>
+          <div className={s.titulo}>Computadores</div>
           <div className={s.precio}>
             <h3>OFERTA!</h3>
           </div>
-          <button className={s.verMas}>
-            <a
-              href="/busqueda/juguetes"
-              style={{ color: "white", textDecoration: "none" }}
-            >
-              Ver más
-            </a>
-          </button>
+        
         </div>
         <div className={s.productos}>
           <div className={s.cajaImagen}>
@@ -55,18 +41,11 @@ export default function Productos() {
               className={s.fondoProductos}
             />
           </div>
-          <div className={s.titulo}>Producto Aleatorio</div>
+          <div className={s.titulo}>Almohadas</div>
           <div className={s.precio}>
             <h3>OFERTA!</h3>
           </div>
-          <button className={s.verMas}>
-            <a
-              href="/busqueda/juguetes"
-              style={{ color: "white", textDecoration: "none" }}
-            >
-              Ver más
-            </a>
-          </button>
+          
         </div>
         <div className={s.productos}>
           <div className={s.cajaImagen}>
@@ -76,40 +55,13 @@ export default function Productos() {
               className={s.fondoProductos}
             />
           </div>
-          <div className={s.titulo}>Producto Aleatorio</div>
+          <div className={s.titulo}>Herramientas</div>
           <div className={s.precio}>
             <h3>OFERTA!</h3>
           </div>
-          <button className={s.verMas}>
-            <a
-              href="/busqueda/juguetes"
-              style={{ color: "white", textDecoration: "none" }}
-            >
-              Ver más
-            </a>
-          </button>
+      
         </div>
-        <div className={s.productos}>
-          <div className={s.cajaImagen}>
-            <img
-              src="https://bulonfer.vtexassets.com/arquivos/ids/213334-500-auto?v=1775500875&width=500&height=auto&aspect=true"
-              alt=""
-              className={s.fondoProductos}
-            />
-          </div>
-          <div className={s.titulo}>Producto Aleatorio</div>
-          <div className={s.precio}>
-            <h3>OFERTA!</h3>
-          </div>
-          <button className={s.verMas}>
-            <a
-              href="/busqueda/juguetes"
-              style={{ color: "white", textDecoration: "none" }}
-            >
-              Ver más
-            </a>
-          </button>
-        </div>
+        
       </div>
     </div>
   );

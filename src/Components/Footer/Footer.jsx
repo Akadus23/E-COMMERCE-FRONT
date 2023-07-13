@@ -48,14 +48,7 @@ export default function Footer() {
             href="/aboutus"
             sx={{ mx: 1, }}
           />
-          <BottomNavigationAction
-            label="Contacto"
-            icon={<AlternateEmail />}
-            value="contacto"
-            component={Link}
-            href="allmarketpf@gmail.com"
-            sx={{ mx: 1, }}
-          />
+       
         </BottomNavigation>
       </Grid>
 

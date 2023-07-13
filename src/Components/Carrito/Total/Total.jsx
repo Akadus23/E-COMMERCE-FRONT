@@ -44,8 +44,12 @@ export default function Total({ productos, sumatotal, updateCarrito }) {
         setUrlPago(urlPago);
 
         // Redireccionar a la URL de Mercado Pago
-        window.location.href = urlPago;
-
+        window.open(urlPago);
+        setTimeout(()=>{
+          dispatch(reinicia_store());
+          window.location.reload(true);
+        },5000)
+       
         // Resto de código
         // dispatch(reinicia_store());
         // dispatch(getAllProducts(1));

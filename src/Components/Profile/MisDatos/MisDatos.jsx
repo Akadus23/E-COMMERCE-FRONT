@@ -9,7 +9,7 @@ import { actualizarUsuario } from "../../../Redux/actions";
 
 export default function MisDatos() {
 
-  const { user } = useAuth0();
+  //const { user } = useAuth0();
 
   const dispatch = useDispatch();
 
@@ -121,7 +121,7 @@ export default function MisDatos() {
             sx={{ width: "400px"}}
             onChange={(e) => handleChange(e)}
             name="nombre"
-            defaultValue={usuario.nombre}
+          
             disabled={!isEditing}
           />
 

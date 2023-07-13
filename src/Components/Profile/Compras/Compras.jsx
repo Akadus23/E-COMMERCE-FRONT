@@ -19,6 +19,7 @@ import {
   IconButton,
   Link,
   Button,
+  Rating
 } from "@mui/material";
 import { CompareArrowsOutlined } from "@mui/icons-material";
 
@@ -206,6 +207,8 @@ const headCells = [
 export default function Compras() {
     // const [value, setValue] = useState(2);
   //   const [order, setOrder] = useState("asc");
+    const [rating, setRating] = useState(0)
+    const [usuarioId, setUsuarioId]= useState(0)
     const [selected, setSelected] = useState([]);
     const [page, setPage] = useState(0);
     const [dense, setDense] = useState(false);
@@ -217,9 +220,9 @@ export default function Compras() {
       try{
       const response = await axios.get(`/ocs/${user.email}`)
       const respones = response.data
-      
+      const resUsuario = await axios.get(`/usuarios/${user.sub}`)
         console.log(respones)
-
+        console.log(resUsuario.data)
         const nuevasCompras = []
       respones.forEach(oc => {
         oc.detalleocs?.forEach(prod =>{
@@ -229,12 +232,15 @@ export default function Compras() {
             cantidad: prod.cant,
             subtotal: prod.subtotal,
             precio: prod.valorunitario,
-            compra: oc.estadooc
+            compra: oc.estadooc,
+            productoId: prod.idproducto
           }
           nuevasCompras.push(compra)
         })
       });
       setCompras(nuevasCompras)
+      setUsuarioId(resUsuario.data.id)
+
     }catch(err){
         console.log(err.message)
       }
@@ -248,19 +254,35 @@ export default function Compras() {
     if(compras.length === 0){
       return <p>Cargando info</p>
     }
+    
   
+    const handleButtonClick = async (productoId) => {
+      try{
+      var descripcion = ""
+      if(rating === 0) alert("Debe seleccionar una calificación")
+      if(rating === 1) descripcion = "Malisimo"
+      if(rating === 2) descripcion = "Malo"
+      if(rating === 3) descripcion = "Normal"
+      if(rating === 4) descripcion = "Bueno"
+      if(rating === 5) descripcion = "Excelente!"
 
-    const handleButtonClick = () => {
-        // Aquí puedes agregar la lógica para obtener el usuario registrado y el producto actual
-        // Puedes usar el estado de tu componente o cualquier otra forma de obtención de datos
-
-        // Ejemplo: Obtener el usuario registrado y el producto actual desde el estado
-        const currentUser = user;
-        const currentProduct = product;
-
+        const review ={
+          productoId: productoId,
+          usuarioId: usuarioId,
+          description: descripcion,
+          rating: rating
+  
+        }
+        
+          const response = await axios.post("/review", review)
+          console.log(response)
+          alert("calificacion exitosa ")
+        }catch(err){
+          alert("este producto ya fue calificado por usted")
+        }
+       
         // Redireccionar a la página de reviews con los parámetros de usuario y producto
-        const url = `/reviews?user=${currentUser}&product=${currentProduct}`;
-        window.location.href = url;
+        
     };
   
     const handleClick = (event, name) => {
@@ -346,15 +368,17 @@ export default function Compras() {
                             <TableCell align="right">{row.compra}</TableCell>
                             <TableCell align="right">
                             <IconButton component={Link} to="/reviews" aria-label="Calificar">
-                            <Link
-                                to="/reviews?user=usuario&product=producto"
+                            <Rating name="calificar" value={rating} onChange={(e, newValue)=>{
+                              setRating(newValue)
+                            }}></Rating>
+                            <Button
                                 component={Button}
                                 variant="contained"
                                 style={{ backgroundColor: '#880e4f', color: 'white' }}
-                                onClick={handleButtonClick}
+                                onClick={()=>handleButtonClick(row.productoId)}
                                 >
                                 Calificar
-                                </Link>
+                                </Button>
                             </IconButton>
                             </TableCell>
                         </TableRow>

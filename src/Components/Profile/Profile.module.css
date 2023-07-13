@@ -1,47 +1,34 @@
 .fondo {
+  display: flex;
+  background-color: rgb(32, 32, 32);
   height: 680px;
-  width: 100%;
+  width: 225px;
+  border-right: 0.1em solid rgb(33, 33, 33);
 }
-.avatar {
-  width: 100%;
+.navBar {
+  width: 350px;
 }
-.nombreUsuario {
-  background-color: rgb(210, 210, 210);
-  width: 11%;
-  height: 310px;
-  position: absolute;
-}
-
 .caja1 {
-  display: flex;
-
-  justify-content: center;
-  align-items: center;
-  width: 70%;
+  width: 225px;
+  background-color: rgb(255, 255, 255);
+  height: 320px;
 }
-.cajaInterna1 {
-  width: 130%;
+.caja1 h1 {
+  font-size: 20px;
 }
-.tituloC {
-  background-image: url("https://wallpaperaccess.com/full/221443.jpg");
-  background-position: center;
-  background-size: cover;
-  height: 55px;
-  display: flex;
-  align-items: center;
-  width: 100%;
-  padding-left: 30px;
-  margin-bottom: 20px;
-  margin-top: 20px;
-  font-size: 25px;
+.caja2 {
   color: aliceblue;
-}
-.datos {
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  position: absolute;
-  margin-left: 212px;
+  align-items: center;
 
-  width: 88.5%;
-  height: 580px;
+  height: 320px;
+}
+.imagen {
+  width: 100%;
+}
+.content {
+  flex: 1;
+  padding: 20px;
 }

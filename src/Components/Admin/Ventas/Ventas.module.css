@@ -7,6 +7,56 @@
   margin-right: 5px;
   border: 0.08em solid rgb(193, 193, 193);
 }
+.fondo {
+  margin-top: 30px;
+  margin-left: 150px;
+  display: flex;
+
+  width: 155%;
+  height: 90%;
+}
+.cajaproductos {
+  width: 65%;
+}
+.productos {
+  height: 90%;
+}
+.titulo {
+  display: flex;
+  height: 37px;
+  align-items: center;
+  color: aliceblue;
+  background-color: rgb(25, 25, 25);
+  margin-bottom: 10px;
+}
+.columna1 {
+  display: flex;
+  justify-content: center;
+  width: 11%;
+}
+.columna2 {
+  display: flex;
+  width: 26%;
+}
+.columna3 {
+  display: flex;
+  width: 30%;
+}
+.columna4 {
+  display: flex;
+  justify-content: center;
+  width: 15%;
+}
+.columna5 {
+  display: flex;
+  justify-content: center;
+  width: 15%;
+}
+.columna6 {
+  display: flex;
+  justify-content: center;
+  width: 13%;
+}
 .total {
   margin-left: 40px;
   border: 0.1em solid rgb(182, 182, 182);
@@ -26,4 +76,18 @@
 
   font-size: 50px;
   height: 80%;
+}
+.venta {
+  border: 0.1em solid rgb(198, 198, 198);
+  border-radius: 11px;
+  margin-bottom: 10px;
+  height: 95px;
+  display: flex;
+  align-items: center;
+}
+.pagination {
+  display: flex;
+  align-items: center;
+  height: 50px;
+  justify-content: center;
 }

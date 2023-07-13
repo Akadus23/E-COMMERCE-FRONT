@@ -5,6 +5,9 @@ import axios from "axios";
 export const GET_DETAIL = "GET_DETAIL";
 export const SET_USUARIO_DETAIL = "SET_USUARIO_DETAIL";
 export const CLEAR_USUARIO_DETAIL = "CLEAR_USUARIO_DETAIL";
+export const FETCH_VENTAS_REQUEST = "FETCH_VENTAS_REQUEST";
+export const FETCH_VENTAS_SUCCESS = "FETCH_VENTAS_SUCCESS";
+export const FETCH_VENTAS_FAILURE = "FETCH_VENTAS_FAILURE";
 
 export function getAllProducts(pagina, producto, color, cate, precio) {
   if (!producto) producto = "";
@@ -39,7 +42,6 @@ export function getAllCategorias() {
 
 export function getDetail(id) {
   return async function (dispatch) {
-    
     const json = await axios(
       `https://commerce-back-2025.up.railway.app/`
       // `/producto/${id}`
@@ -48,7 +50,6 @@ export function getDetail(id) {
       type: GET_DETAIL,
       payload: json.data,
     });
-  
   };
 }
 
@@ -96,15 +97,15 @@ export function addCarrito(producto) {
 
 export const updateCarrito = (id, cantidad, valorunit, subtotalitem) => {
   return {
-    type: 'UPDATE_CARRITO',
+    type: "UPDATE_CARRITO",
     payload: {
       id,
-      cantidad, 
-      valorunit,         
-      subtotalitem
-    }
+      cantidad,
+      valorunit,
+      subtotalitem,
+    },
   };
- };
+};
 
 export function obtenerCategoriaPorId(id) {
   return async function (dispatch) {
@@ -136,16 +137,15 @@ export function limpiarFiltroyBusqueda() {
   };
 }
 
- /**  LIMPIAR carrito DE LA PERSISTENCIA  */
- export const limpiarCarrito = () => {
-  return {  type: "LIMPIAR_CARRITO" };
- };
+/**  LIMPIAR carrito DE LA PERSISTENCIA  */
+export const limpiarCarrito = () => {
+  return { type: "LIMPIAR_CARRITO" };
+};
 
- /** REINICIA STORE */
+/** REINICIA STORE */
 export const reinicia_store = () => {
-  return {  type: "REINICIA_STORE"  }; 
-  };
-   
+  return { type: "REINICIA_STORE" };
+};
 
 // export const getAllUsuarios = (page, limit) => {
 //   return async (dispatch) => {
@@ -174,12 +174,11 @@ export const fetchUsuariosRequest = () => {
   };
 };
 
-export const fetchUsuariosSuccess = (usuarios, totalPages) => {
+export const fetchUsuariosSuccess = (usuarios) => {
   return {
     type: "FETCH_USUARIOS_SUCCESS",
     payload: {
       usuarios,
-      totalPages,
     },
   };
 };
@@ -191,17 +190,17 @@ export const fetchUsuariosFailure = (error) => {
   };
 };
 
-export const fetchUsuarios = (page, limit) => {
+export const fetchUsuarios = () => {
   return (dispatch) => {
     dispatch(fetchUsuariosRequest());
     axios
       .get(
-        `/usuarios?page=${page}&limit=${limit}`
+        `https://commerce-back-2025.up.railway.app/usuarios?page=1&limit=100`
       )
       .then((response) => {
         const usuarios = response.data.usuarios;
-        const totalPages = response.data.totalPages;
-        dispatch(fetchUsuariosSuccess(usuarios, totalPages));
+        console.log(usuarios);
+        dispatch(fetchUsuariosSuccess(usuarios));
       })
       .catch((error) => {
         dispatch(fetchUsuariosFailure(error.message));
@@ -211,10 +210,8 @@ export const fetchUsuarios = (page, limit) => {
 
 export function usuarioId(id) {
   return async function (dispatch) {
-    const json = await axios(
-      `/usuarios/${id}`
-    );
-    //console.log(json.data);
+    const json = await axios(`/usuarios/${id}`);
+    console.log(json.data);
     return dispatch({
       type: "USUARIO_ID",
       payload: json.data,
@@ -233,9 +230,7 @@ export function editarProducto(id) {
   return async function (dispatch) {
     try {
       // Realiza la solicitud para editar el producto en el backend
-      const response = await axios.put(
-        `/producto/${id}`
-      );
+      const response = await axios.put(`/producto/${id}`);
 
       // Si la solicitud es exitosa, despacha una acción para actualizar el estado en Redux
       if (response.status === 200) {
@@ -252,6 +247,63 @@ export function editarProducto(id) {
 export const deleteProdCarro = (productId) => {
   return {
     type: "DELETE_PRODCARRO",
-    payload: productId
+    payload: productId,
   };
- };
+};
+
+//   ################### VENTAS ADMIN ######################
+
+export const fetchProductosSuccess = (productos) => {
+  return {
+    type: "FETCH_PRODUCTOS_SUCCESS",
+    payload: productos,
+  };
+};
+export const fetchTotalVentas = (productos) => {
+  return {
+    type: "FETCH_TOTAL_VENTAS",
+    payload: productos,
+  };
+};
+
+export const fetchProductos = () => {
+  return (dispatch) => {
+    axios
+      .get(`https://commerce-back-2025.up.railway.app/ocs?page=1&limit=100`)
+      .then((response) => {
+        const total = response.data.ocs;
+        const detalle = response.data.ocs.flatMap((obj) =>
+          obj.detalleocs.map((e) => e)
+        );
+        //console.log(total);
+        dispatch(fetchProductosSuccess(detalle));
+        const sumValortotaloc = total.reduce(
+          (sum, oc) => sum + oc.valortotaloc,
+          0
+        );
+
+        dispatch(fetchTotalVentas(sumValortotaloc));
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+};
+
+//   ################### BANEAR USUARIOS ######################
+
+export function disableUser(usuarioId) {
+  return async function () {
+    try {
+      console.log(usuarioId);
+      const result = await axios.put(
+        `https://commerce-back-2025.up.railway.app/usuarios/${usuarioId}/isban `
+      );
+      console.log(result);
+      alert(result);
+      //return dispatch({ type: CREATE_JUEGO, payload: info })
+    } catch (error) {
+      alert(error.message);
+    }
+  };
+}

@@ -1,0 +1,14 @@
+.caja1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(255, 140, 0);
+  height: 190px;
+}
+.caja2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(79, 243, 183);
+  height: 580px;
+}

@@ -9,6 +9,7 @@ export default function Perfil() {
   let { id } = useParams();
 
   const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(usuarioId(id));
   }, []);

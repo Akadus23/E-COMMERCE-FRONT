@@ -54,16 +54,7 @@ export default function Admin() {
           >
             USUARIOS HAB.
           </Link>
-          <Link
-            to="/admin/baneados"
-            style={{
-              color: "white",
-              textDecoration: "none",
-              marginBottom: "20px",
-            }}
-          >
-            USUARIOS DES.
-          </Link>
+
           <Link
             to="/admin/mis-datos"
             style={{

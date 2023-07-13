@@ -36,8 +36,7 @@ function SwipeableTextMobileStepper() {
       <p className={s.titulos}>Categoria</p>
       <Categorias></Categorias>
       <Reseñas></Reseñas>
-      <p className={s.titulos}>Tiendas</p>
-      <Tiendas></Tiendas>
+
       <p className={s.titulos}>Informacion</p>
       <Info></Info>
     </div>

@@ -11,7 +11,7 @@ export default function Admin() {
   
   return (
     <>
-    {isAuthenticated ? 
+    {true ? 
     <div className={s.fondo}>
       <div className={s.navBar}>
         <div className={s.caja1}>

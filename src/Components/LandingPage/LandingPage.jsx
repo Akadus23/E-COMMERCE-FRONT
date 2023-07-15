@@ -5,9 +5,9 @@ import Productos from "./Productos/Productos";
 import Baner from "./Baner/Baner";
 import Categorias from "./Categorias/Categorias";
 import Reseñas from "./Reseñas/Reseña";
-import Tiendas from "./Tiendas/Tienda";
+// import Tiendas from "./Tiendas/Tienda";
 import Info from "./Info/Info";
-import { Dialog, CircularProgress, Backdrop } from '@mui/core';
+import { Dialog, Avatar, Backdrop, Typography, styled, } from '@mui/material';
 
 
 function SwipeableTextMobileStepper() {
@@ -23,12 +23,23 @@ function SwipeableTextMobileStepper() {
     return () => clearTimeout(timer);
   }, []);
 
+  const CircularDialog = styled(Dialog)({
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: '10%',
+  });
+
   return (
     <div>
-      <Backdrop open={open} style={{ zIndex: 999, color: '#fff', opacity: 0.5 }} />
-      <Dialog open={open} maxWidth="xs">
-        <CircularProgress size={80} />
-      </Dialog>
+     {/* <Backdrop open={open} style={{ zIndex: 999, color: '#fff', opacity: 0.5 }} />
+     <CircularDialog open={open} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+  <Avatar sx={{ width: 400, height: 400, ml: "50px" }} src="https://images.pexels.com/photos/6868618/pexels-photo-6868618.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Imagen de perfil" />
+  <Typography variant="h1" align="center" sx={{ marginTop: 2 }}>
+    ¡Bienvenid@!
+  </Typography>
+</CircularDialog> */}
+
       <Carrusel></Carrusel>
       <p className={s.producto}>Productos</p>
       <Productos></Productos>

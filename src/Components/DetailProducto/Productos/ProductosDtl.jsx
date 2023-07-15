@@ -6,7 +6,7 @@ import { useDispatch } from "react-redux";
 import { getAllProducts } from "../../../Redux/actions";
 
 
-export default function Productos({productos}) {
+export default function ProductosDtl({productos}) {
 const arrayRandom = []
 
 const navigate = useNavigate()
